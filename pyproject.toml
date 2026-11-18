@@ -1,0 +1,48 @@
+[project]
+name = "npchat-eval"
+version = "0.1.0"
+description = "Retrieval evaluation for the npchat RAG pipeline"
+readme = "README.md"
+authors = [
+    { name = "Nelson André", email = "nelsonandre@proton.me" }
+]
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = []
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.1",
+    "pytest>=9.2.0",
+    "ruff>=0.17.5",
+]
+
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle
+    "F",    # Pyflakes
+    "B",    # flake8-bugbear
+    "S",    # flake8-bandit (security)
+    "SIM",  # flake8-simplify
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.mypy]
+strict = true
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+
+
